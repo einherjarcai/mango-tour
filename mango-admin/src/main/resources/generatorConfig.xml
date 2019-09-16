@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!-- context 是逆向工程的主要配置信息 -->
+    <!-- id：起个名字 -->
+    <!-- targetRuntime：设置生成的文件适用于那个 mybatis 版本 -->
+    <context id="default" targetRuntime="MyBatis3">
+
+
+        <!--jdbc的数据库连接-->
+        <!--这里是以变量的形式定义，具体的值在 application.properties 文件中-->
+        <!--jdbc:mysql://localhost:3306/数据库名?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://114.67.64.139:3306/mango?nullCatalogMeansCurrent=true"
+                        userId="root"
+                        password="!QAZ2wsx">
+        </jdbcConnection>
+
+        <!-- targetPackage：生成的实体类所在的包 -->
+        <!-- targetProject：生成的实体类所在的硬盘位置 -->
+        <!-- DataObject 类存放位置 -->
+        <javaModelGenerator targetPackage="com.einherjar.mangoadmin.admin.entity"
+                            targetProject="/Users/wangcai/IdeaProjects/mango-tour/mango-admin/src/main/java/">
+            <!-- 是否允许子包 -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 是否对modal添加构造函数 -->
+            <property name="constructorBased" value="true" />
+            <!-- 是否清理从数据库中查询出的字符串左右两边的空白字符 -->
+            <property name="trimStrings" value="true" />
+            <!-- 建立modal对象是否不可改变 即生成的modal对象不会有setter方法，只有构造方法 -->
+            <property name="immutable" value="false" />
+        </javaModelGenerator>
+
+        <!-- targetPackage 和 targetProject：生成的 mapper 文件的包和位置 -->
+        <sqlMapGenerator targetPackage="mapping"
+                         targetProject="/Users/wangcai/IdeaProjects/mango-tour/mango-admin/src/main/java/">
+            <!-- 针对数据库的一个配置，是否把 schema 作为字包名 -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!-- targetPackage 和 targetProject：生成的 interface 文件的包和位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.einherjar.mangoadmin.admin.dao" targetProject="/Users/wangcai/IdeaProjects/mango-tour/mango-admin/src/main/java/">
+            <!-- 针对 oracle 数据库的一个配置，是否把 schema 作为字包名 -->
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--生成对应表及类名-->
+        <table tableName="sys_config" domainObjectName="SysConfig" enableCountByExample="false"  enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table>
+        <table tableName="sys_dept" domainObjectName="SysDept" enableCountByExample="false"  enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table>
+        <table tableName="sys_dict" domainObjectName="SysDict" enableCountByExample="false"  enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table>
+        <table tableName="sys_log" domainObjectName="SysLog" enableCountByExample="false"  enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table>
+        <table tableName="sys_login_log" domainObjectName="SysLoginLog" enableCountByExample="false"  enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table>
+        <table tableName="sys_menu" domainObjectName="SysMenu" enableCountByExample="false"  enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table>
+        <table tableName="sys_role" domainObjectName="SysRole" enableCountByExample="false"  enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table>
+        <table tableName="sys_role_dept" domainObjectName="SysRoleDept" enableCountByExample="false"  enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table>
+        <table tableName="sys_role_menu" domainObjectName="SysRoleMenu" enableCountByExample="false"  enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table>
+        <table tableName="sys_user" domainObjectName="SysUser" enableCountByExample="false"  enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table>
+        <table tableName="sys_user_role" domainObjectName="SysUserRole" enableCountByExample="false"  enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table>
+    </context>
+</generatorConfiguration>
+

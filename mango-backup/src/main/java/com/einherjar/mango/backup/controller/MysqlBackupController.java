@@ -54,7 +54,7 @@ public class MysqlBackupController {
     }
 
     @GetMapping("/restore")
-    public HttpResult restore(@RequestParam String name) throws IOException {
+    public HttpResult restore(@RequestParam String name) {
         String host = properties.getHost();
         String userName = properties.getUserName();
         String password = properties.getPassword();

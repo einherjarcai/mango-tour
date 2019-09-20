@@ -8,7 +8,7 @@ spring:
 mango:
   backup:
     datasource:
-      host: localhost
+      host: ''
       userName: root
-      password: ""
+      password: ''
       database: mango

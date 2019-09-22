@@ -1,12 +1,14 @@
 package com.einherjar.mango.admin;
 
+import java.io.IOException;
+
 /**
  * @author :   einherjar
  * @date :   2019-09-20 10:50 上午
  */
 public class demo {
     public static String output = "";
-    public static void foo(int i) {
+    public static void foo(int i) throws ClassCastException {
         try {
             if (i == 1) {
                 throw new Exception();
@@ -32,9 +34,9 @@ public class demo {
     }
 
     public static void main(String[] args) {
-//        foo(0);
-//        foo(1);
-//        System.out.println(output);
-        test1(0);
+        foo(0);
+        foo(1);
+        System.out.println(output);
+//        test1(0);
     }
 }

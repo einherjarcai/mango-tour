@@ -34,6 +34,6 @@ public class SysLoginController {
         request.getSession().setAttribute(Constants.KAPTCHA_SESSION_KEY, text);
         ServletOutputStream outputStream = response.getOutputStream();
         ImageIO.write(image, "jpg", outputStream);
-        IOUtils.closeQuiely(outputStream);
+        IOUtils.closeQuietly(outputStream);
     }
 }
